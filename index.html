@@ -130,6 +130,8 @@
       }
 	  
 	  function getFriends(){
+		vkBridge.send('VKWebAppGetAuthToken', { "app_id": 8150247, "scope":
+		"friends,status"});
 		vkBridge.send('VKWebAppGetFriends').then(_info =>{
           console.log(_info);
         });
