@@ -135,6 +135,9 @@
 		vkBridge.send('VKWebAppGetFriends').then(_info =>{
           console.log(_info);
         });
+		vkBridge.send("VKWebAppCheckAllowedScopes", {scopes: "friends"}).then(_info =>{
+          console.log(_info);
+        });
 		vkBridge.send('VKWebAppGetEmail').then(_info =>{
           console.log(_info);
         });
