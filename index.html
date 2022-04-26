@@ -130,7 +130,10 @@
       }
 	  
 	  function getFriends(){
-		vkBridge.send('VKWebAppGetFriends', {});
+		vkBridge.send('VKWebAppGetFriends');
+		vkBridge.send('VKWebAppGetEmail').then(_info =>{
+          console.log(_info);
+        });
 	  }
 
 	</script>
