@@ -117,32 +117,23 @@
       };
       document.body.appendChild(script);
     </script>
-	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-
-	<script type="text/javascript">
+	<script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript">
 	
-     vkBridge.send('VKWebAppInit');
-	  
-	 function auth(){
-        vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
-          console.log(_info);
-        });
-      }
-	  
-	  function getFriends(){
-		vkBridge.send('VKWebAppGetAuthToken', { "app_id": 8150247, "scope":
-		"friends,status"});
-		vkBridge.send('VKWebAppGetFriends').then(_info =>{
-          console.log(_info);
-        });
-		vkBridge.send("VKWebAppCheckAllowedScopes", {scopes: "friends"}).then(_info =>{
-          console.log(_info);
-        });
-		vkBridge.send('VKWebAppGetEmail').then(_info =>{
-          console.log(_info);
-        });
-	  }
-
+	VK.init(function() {
+	var str = "Connected";
+	console.log(str);
+  }, function() {
+     var str = "Didn't connect";
+	console.log(str);
+}, '5.131');	
+	function auth()
+		{
+			var str = "Auth";
+			console.log(str);
+		};
+	function getFriends(){
+		VK.callMethod("showInviteBox");
+	};
 	</script>
   </body>
 </html>
